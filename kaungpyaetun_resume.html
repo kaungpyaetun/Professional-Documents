@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaung Pyae Tun | Resume Form </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-   <style>
+    <style>
         :root {
             --primary-color: #2c3e50;
             --accent-color: #3498db;
@@ -55,7 +55,9 @@
             font-size: 0.9em;
         }
 
-        .contact-info p { margin: 5px 0; }
+        .contact-info p {
+            margin: 5px 0;
+        }
 
         .contact-info a {
             text-decoration: none;
@@ -63,7 +65,9 @@
             transition: color 0.3s;
         }
 
-        .contact-info a:hover { color: var(--accent-color); }
+        .contact-info a:hover {
+            color: var(--accent-color);
+        }
 
         h2 {
             color: var(--accent-color);
@@ -75,7 +79,9 @@
             margin-bottom: 15px;
         }
 
-        .section { margin-bottom: 25px; }
+        .section {
+            margin-bottom: 25px;
+        }
 
         .skills-grid {
             display: grid;
@@ -93,7 +99,10 @@
             font-size: 0.95em;
         }
 
-        .experience-item, .project-item { margin-bottom: 25px; }
+        .experience-item,
+        .project-item {
+            margin-bottom: 25px;
+        }
 
         .item-header {
             display: flex;
@@ -135,69 +144,159 @@
             font-size: 0.95em;
         }
 
-        .download-btn {
-            background-color: var(--accent-color);
-            color: white !important;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 0.9em;
-            transition: background 0.3s;
-            display: inline-block;
-            margin-bottom: 20px;
+        ul {
+            margin: 5px 0;
+            padding-left: 20px;
         }
 
-        ul { margin: 5px 0; padding-left: 20px; }
-        li { margin-bottom: 3px; font-size: 0.95em; }
+        li {
+            margin-bottom: 3px;
+            font-size: 0.95em;
+        }
 
-        /* --- CRITICAL FIX FOR PDF VIEW --- */
+        /* Progress Bar Styles */
+        .progress-container {
+            width: 100%;
+            background-color: #eee;
+            border-radius: 10px;
+            height: 6px;
+            margin: 5px 0 12px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--accent-color);
+            border-radius: 10px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 0.9em;
+        }
+
+        /* --- CLASSIC TOOLBAR & BUTTONS --- */
+        .toolbar {
+            margin-bottom: 25px;
+            text-align: right;
+        }
+
+        .btn-classic {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background-color: transparent;
+            color: var(--primary-color) !important;
+            border: 1.5px solid var(--primary-color);
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-classic:hover {
+            background-color: var(--primary-color);
+            color: white !important;
+        }
+
+        .only-web {
+            display: inline-flex;
+        }
+
+        .only-pdf {
+            display: none;
+        }
+
+        /* --- FINAL PDF & PRINT OPTIMIZATION --- */
         @media print {
-            .toolbar, .download-btn {
-                display: none !important;
-                visibility: hidden !important;
-                height: 0 !important;
-                margin: 0 !important;
-                padding: 0 !important;
-            }
-            
-            body { background-color: white; padding: 0; }
-            .container { 
-                box-shadow: none; 
-                border-top: none; 
-                width: 100%; 
-                max-width: 100%;
-                padding: 0; 
-            }
-            /* Place title in center by viewing in PDF format*/
-            title {
-                flex-direction: column;
-                text-align: center;
-                align-items: center;
+            @page {
+                margin: 1cm;
             }
 
-            /* the color of Links are saved in PDF format*/
-            a {
-                color: var(--accent-color) !important;
+            /* မလိုအပ်သော Web ခလုတ်များကို ဖျောက်ခြင်း */
+            .only-web,
+            .download-btn {
+                display: none !important;
+            }
+
+            /* PDF ခလုတ်ကို ညာဘက်တွင် ပေါ်စေခြင်း */
+            .toolbar {
+                display: block !important;
+                visibility: visible !important;
+                text-align: right;
+                margin-bottom: 20px !important;
+            }
+
+            .only-pdf {
+                display: inline-flex !important;
+                border: 1.5px solid #2c3e50 !important;
+                color: #2c3e50 !important;
+                padding: 5px 12px !important;
                 text-decoration: none !important;
+                font-size: 10pt !important;
+            }
+
+            body {
+                background-color: white !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .container {
+                max-width: 100% !important;
+                width: 100% !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                border-top: none !important;
+                margin: 0 !important;
+            }
+
+            header {
+                display: flex !important;
+                justify-content: space-between !important;
+                width: 100% !important;
+                border-bottom: 1px solid #eee !important;
+            }
+
+            .contact-info {
+                text-align: right !important;
+            }
+
+            .progress-fill {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background-color: var(--accent-color) !important;
             }
         }
     </style>
-
 </head>
 
 <body>
     <div class="container">
         <div class="toolbar">
-            <a href="Kaung Pyae Tun _ Software Engineer Resume.pdf" download class="download-btn">
-                <i class="fas fa-file-download"></i> View as PDF
+            <!-- <a href="A:\New folder\Professional-Documents\Kaung Pyae Tun _ Resume Form.pdf" download class="btn-classic only-web"> -->
+             <a href="https://kaungpyaetun.github.io/Professional-Documents/Kaung%20Pyae%20Tun%20_%20Resume%20Form.pdf" download class="btn-classic only-web">
+
+                <i class="fas fa-file-download"></i> Download PDF
+            </a>
+
+            <a href="https://kaungpyaetun.github.io/Professional-Documents/kaungpyaetun_resume.html"
+                class="btn-classic only-pdf">
+                <i class="fas fa-globe"></i> View Web Version
             </a>
         </div>
 
         <header>
             <div class="header-info">
                 <h1>Kaung Pyae Tun</h1>
-                <p style="font-size: 1.2em; color: #7f8c8d;">Junior Software Developer</p>
+                <p style="font-size: 1.2em; color: #7f8c8d;">Software Developer</p>
             </div>
             <div class="contact-info">
                 <p><i class="fas fa-envelope"></i> <a href="mailto:kaungpyaetun4@gmail.com">kaungpyaetun4@gmail.com</a>
@@ -206,78 +305,167 @@
                 <p><i class="fab fa-github"></i> <a href="https://github.com/kaungpyaetun"
                         target="_blank">github.com/kaungpyaetun</a></p>
 
-                        
+
             </div>
         </header>
 
         <div class="section">
             <h2><i class="fas fa-user"></i> Profile</h2>
-            <p>Motivated and resourceful software engineer with hands-on experience in Android development, IoT, and
-                network optimization. Proficient in Java, with a strong track record of designing innovative,
-                high-performance solutions. Experienced in configuring complex network infrastructures and collaborating
-                across teams to meet technical goals.</p>
+            <p>I am a hardworking professional with practical experience in web development, and my long-term goal is to
+                grow into a Senior Software Engineer. I am skilled in Java and have a solid history of creating helpful,
+                high-quality solutions.I am very eager to use my skills to benefit in many projects of the company and
+                the team, while
+                learning new technologies to contribute to the organization’s success and my professional development.
+                In the past, I also gained valuable experience working with Android development, IoT project, network
+                optimization and IT support.</p>
         </div>
-
         <div class="section">
             <h2><i class="fas fa-laptop-code"></i> Technical Skills</h2>
             <div class="skills-grid">
+
                 <div class="skill-item" style="flex-direction: column; align-items: flex-start;">
                     <strong
-                        style="font-size: 0.8em; color: var(--accent-color); text-transform: uppercase;">Programming & Frameworks</strong>
-                    <div style="width: 100%; display: flex; justify-content: space-between; margin-top: 5px;">
-                        <span>Java, C, C++</span> <span>★★★★☆</span>
-                    </div>
-                    <div style="width: 100%; display: flex; justify-content: space-between;">
-                        <span>JavaScript</span> <span style="font-size: 0.85em; color: #7f8c8d;">(Upskilling)</span>
-                    </div>
-                </div>
+                        style="font-size: 0.8em; color: var(--accent-color); text-transform: uppercase;">Programming,
+                        Frameworks & Database</strong>
+                    <div style="width: 100%; margin-top: 8px;">
+                        <div class="skill-info"><span>Java</span> <span>70%</span></div>
+                        <div class="progress-container">
+                            <div class="progress-fill" style="width: 70%;"></div>
+                        </div>
 
-                <div class="skill-item" style="flex-direction: column; align-items: flex-start;">
-                    <strong style="font-size: 0.8em; color: var(--accent-color); text-transform: uppercase;">Web &
-                        Mobile</strong>
-                    <div style="width: 100%; display: flex; justify-content: space-between; margin-top: 5px;">
-                        <span>HTML5 & CSS3</span> <span>★★★★☆</span>
-                    </div>
-                    <div style="width: 100%; display: flex; justify-content: space-between;">
-                        <span>Android SDK</span> <span>★★★☆☆</span>
-                    </div>
-                </div>
+                        <div class="skill-info"><span>Spring Boot</span> <span>60%</span></div>
+                        <div class="progress-container">
+                            <div class="progress-fill" style="width: 60%;"></div>
+                        </div>
 
-                <div class="skill-item" style="flex-direction: column; align-items: flex-start;">
-                    <strong style="font-size: 0.8em; color: var(--accent-color); text-transform: uppercase;">Database &
-                        Tools</strong>
-                    <div style="width: 100%; display: flex; justify-content: space-between; margin-top: 5px;">
-                        <span>MySQL & JDBC</span> <span>★★★☆☆</span>
-                    </div>
-                    <div style="width: 100%; display: flex; justify-content: space-between;">
-                        <span>Git & GitHub</span> <span>★★★★☆</span>
+                        <div class="skill-info"><span>JavaScript</span> <span
+                                style="font-size: 0.8em; color: #7f8c8d;">Upskilling</span></div>
+                        <div class="progress-container">
+                            <div class="progress-fill" style="width: 20%; opacity: 0.5;"></div>
+                        </div>
+
+                        <div class="skill-info"><span>MySQL & JDBC</span> <span>60%</span></div>
+                        <div class="progress-container">
+                            <div class="progress-fill" style="width: 60%;"></div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="skill-item" style="flex-direction: column; align-items: flex-start;">
                     <strong
-                        style="font-size: 0.8em; color: var(--accent-color); text-transform: uppercase;">Infrastructure</strong>
-                    <div style="width: 100%; display: flex; justify-content: space-between; margin-top: 5px;">
-                        <span>Routing / WLC</span> <span>★★★★☆</span>
-                    </div>
-                    <div style="width: 100%; display: flex; justify-content: space-between;">
-                        <span>Spring Boot</span> <span style="font-size: 0.85em; color: #7f8c8d;">(Learning)</span>
+                        style="font-size: 0.8em; color: var(--accent-color); text-transform: uppercase;">Infrastructure
+                        & Tools</strong>
+                    <div style="width: 100%; margin-top: 8px;">
+                        <div class="skill-info"><span>Linux</span> <span>50%</span></div>
+                        <div class="progress-container">
+                            <div class="progress-fill" style="width: 50%;"></div>
+                        </div>
+
+                        <div class="skill-info"><span>Git & GitHub</span> <span>60%</span></div>
+                        <div class="progress-container">
+                            <div class="progress-fill" style="width: 60%;"></div>
+                        </div>
                     </div>
                 </div>
+
                 <div class="skill-item" style="flex-direction: column; align-items: flex-start;">
-                    <strong
-                        style="font-size: 0.8em; color: var(--accent-color); text-transform: uppercase;">Development Workflow</strong>
-                    <div style="width: 100%; display: flex; justify-content: space-between; margin-top: 5px;">
-                        <span>SDLC, Debugging, Project Documentation, Agile Mentality</span> <span>★★★★☆</span>
-                    </div>
-                    <div style="width: 100%; display: flex; justify-content: space-between;">
-                        <span>Microservice</span> <span style="font-size: 0.85em; color: #7f8c8d;">(Learning)</span>
+                    <strong style="font-size: 0.8em; color: var(--accent-color); text-transform: uppercase;">Web
+                        Technologies</strong>
+                    <div style="width: 100%; margin-top: 8px;">
+                        <div class="skill-info"><span>HTML5 & CSS3</span> <span>80%</span></div>
+                        <div class="progress-container">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
+
+                        <div class="skill-info"><span>Bootstrap</span> <span>80%</span></div>
+                        <div class="progress-container">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
                     </div>
                 </div>
+
+                <div class="skill-item" style="flex-direction: column; align-items: flex-start;">
+                    <strong style="font-size: 0.8em; color: var(--accent-color); text-transform: uppercase;">Development
+                        Workflow</strong>
+                    <div style="width: 100%; margin-top: 8px;">
+                        <div class="skill-info"><span>SDLC & Documentation</span> <span>60%</span></div>
+                        <div class="progress-container">
+                            <div class="progress-fill" style="width: 60%;"></div>
+                        </div>
+
+                        <div class="skill-info"><span>Agile Mentality</span> <span>70%</span></div>
+                        <div class="progress-container">
+                            <div class="progress-fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="section">
+            <h2><i class="fas fa-code"></i> Featured Projects</h2>
+            <div class="project-item">
+                <div class="item-header">
+                    <span>Contract Management System</span>
+                    <a href="https://github.com/Michael-HTA/final-project" class="project-link" target="_blank">View
+                        Code <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <p style="margin: 5px 0;">CMS click click done!!!!!!!!!!!!!!!!!!!!!!!!!!!!1.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-project-diagram"></i>Projects Experience</h2>
+            <div class="project-item">
+                <div class="item-header">Campus-Wide Wireless LAN Deployment <span class="badge">Networking</span></div>
+                <div class="item-sub">University of Computer Studies, Taunggyi <span>2018</span></div>
+                <ul>
+                    <li>Planned and implemented WLC setup for university campus.</li>
+                    <li>Ensured seamless roaming and user authentication across buildings.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="item-header">Home Automatic Control System <span class="badge">IoT Project</span></div>
+                <div class="item-sub">Product Show Exhibition <span>2018</span></div>
+                <ul>
+                    <li>Developed a control system using IoT technology and embedded programming.</li>
+                    <li>Tested and validated system functionality for reliable operation.</li>
+                </ul>
+            </div>
+            <div class="project-item">
+                <div class="item-header">
+                    <span>Hotel Booking System</span>
+                    <span class="badge">Android Mobile Development</span>
+                </div>
+                <div class="item-sub">UCST Training Project <span>May 2017 – Jun 2017</span></div>
+                <ul>
+                    <li>Developed a full-featured hotel booking application utilizing the <strong>Java</strong>
+                        programming language.</li>
+                    <li>Implemented responsive and user-friendly UI elements using <strong>Android Studio, XML layout,
+                            and Android SDK</strong>.</li>
+                    <li>Managed robust data storage and retrieval systems using <strong>MySQL database</strong>.</li>
+                    <li>Collaborated with peers to analyze complex requirements and enhance overall application
+                        functionality.</li>
+                    <li>Conducted rigorous testing and debugging to ensure high-performance and stability.</li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="section">
             <h2><i class="fas fa-briefcase"></i> Employment History</h2>
+
+            <div class="experience-item">
+                <div class="item-header">Software Developer(OJT)</div>
+                <div class="item-sub">DAT Co., Ltd <span>Sept 2025 – Dec 2025</span></div>
+                <ul>
+                    <li>jjjjjjjjjjjjjjjjjjjjjjjjjj.</li>
+                    <li>sadffffffffffffffffffffffffffffff</li>
+                    <li>ghjkl;jhkl;asdffffffffffffffffffffff</li>
+                </ul>
+            </div>
 
             <div class="experience-item">
                 <div class="item-header">Computer Service Provider</div>
@@ -300,67 +488,6 @@
             </div>
         </div>
 
-        <div class="section">
-            <h2><i class="fas fa-code"></i> Featured Projects</h2>
-            <div class="project-item">
-                <div class="item-header">
-                    <span>Professional Web Resume</span>
-                    <a href="https://github.com/Michael-HTA/final-project" class="project-link" target="_blank">View
-                        Code <i class="fas fa-external-link-alt"></i></a>
-                </div>
-                <p style="margin: 5px 0;">A live, responsive resume hosted on GitHub Pages demonstrating proficiency in
-                    HTML5, CSS3, and Git version control.</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2><i class="fas fa-project-diagram"></i> Key Projects</h2>
-
-            <div class="project-item">
-                <div class="item-header">
-                    <span>Contract Management System</span>
-                    <a href="https://github.com/Michael-HTA/final-project" class="project-link" target="_blank">View
-                        Code <i class="fas fa-external-link-alt"></i></a>
-                </div>
-                <p style="margin: 5px 0; font-size: 0.95em;">A live, responsive application demonstrating proficiency in
-                    modern web workflows and version control.</p>
-            </div>
-
-            <div class="project-item">
-                <div class="item-header">Campus-Wide Wireless LAN Deployment <span class="badge">Networking</span></div>
-                <div class="item-sub">University of Computer Studies, Taunggyi <span>2018</span></div>
-                <ul>
-                    <li>Planned and implemented WLC setup for university campus.</li>
-                    <li>Ensured seamless roaming and user authentication across buildings.</li>
-                </ul>
-            </div>
-
-            <div class="project-item">
-                <div class="item-header">IoT Home Automatic Control System <span class="badge">IoT</span></div>
-                <div class="item-sub">Product Show Exhibition <span>2018</span></div>
-                <ul>
-                    <li>Developed a control system using IoT technology and embedded programming.</li>
-                    <li>Tested and validated system functionality for reliable operation.</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <div class="item-header">
-                    <span>Hotel Booking System (Android Mobile App)</span>
-                    <span class="badge">Mobile Dev</span>
-                </div>
-                <div class="item-sub">UCST Training Project <span>May 2017 – Jun 2017</span></div>
-                <ul>
-                    <li>Developed a full-featured hotel booking application utilizing the <strong>Java</strong>
-                        programming language.</li>
-                    <li>Implemented responsive and user-friendly UI elements using <strong>Android Studio, XML layout,
-                            and Android SDK</strong>.</li>
-                    <li>Managed robust data storage and retrieval systems using <strong>MySQL database</strong>.</li>
-                    <li>Collaborated with peers to analyze complex requirements and enhance overall application
-                        functionality.</li>
-                    <li>Conducted rigorous testing and debugging to ensure high-performance and stability.</li>
-                </ul>
-            </div>
-        </div>
 
         <div class="section">
             <h2><i class="fas fa-graduation-cap"></i> Education</h2>
@@ -371,12 +498,9 @@
         </div>
         <div class="section">
             <h2><i class="fas fa-lightbulb"></i> Language & Personal Skills</h2>
-            <div class="grid-container">
-                <div class="grid-item"><span>English</span> <span>Intermediate</span></div>
-                <div class="grid-item"><span>Problem Solving</span> <span>Advanced</span></div>
-            </div>
             <div style="margin-top:15px;">
                 <ul class="personal-skills-list">
+                    <li> English (Intermediate)</li>
                     <li> Strong problem-solving and troubleshooting mindset</li>
                     <li>Effective team collaboration</li>
                     <li> Conscientious and responsible project contributor</li>
@@ -385,7 +509,7 @@
             </div>
         </div>
         <div class="section">
-            <h2><i class="fas fa-bullseye"></i> Career Objective</h2>
+            <h2><i class="fas fa-bullseye"></i>Objective</h2>
             <div class="objective-box">
                 To secure a position that allows me to leverage my education and experience in software development
                 while contributing to the mutual growth of both myself and the organization.
