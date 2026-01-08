@@ -69,15 +69,29 @@
             color: var(--accent-color);
         }
 
+        /* --- UPDATED H2 DESIGN --- */
         h2 {
             color: var(--accent-color);
             border-left: 5px solid var(--accent-color);
             padding-left: 15px;
             text-transform: uppercase;
             font-size: 1.2em;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* Space between icon and text */
         }
+
+        h2 i {
+            font-size: 0.9em;
+            width: 25px;
+            /* Ensures icons align vertically */
+            text-align: center;
+        }
+
+        /* -------------------------- */
 
         .section {
             margin-bottom: 25px;
@@ -85,18 +99,15 @@
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .skill-item {
             background: #f9f9f9;
-            padding: 8px 15px;
+            padding: 15px;
             border-radius: 4px;
-            display: flex;
-            justify-content: space-between;
             border: 1px solid #eee;
-            font-size: 0.95em;
         }
 
         .experience-item,
@@ -154,7 +165,6 @@
             font-size: 0.95em;
         }
 
-        /* Progress Bar Styles */
         .progress-container {
             width: 100%;
             background-color: #eee;
@@ -177,7 +187,6 @@
             font-size: 0.9em;
         }
 
-        /* --- CLASSIC TOOLBAR & BUTTONS --- */
         .toolbar {
             margin-bottom: 25px;
             text-align: right;
@@ -214,19 +223,16 @@
             display: none;
         }
 
-        /* --- FINAL PDF & PRINT OPTIMIZATION --- */
         @media print {
             @page {
                 margin: 1cm;
             }
 
-            /* မလိုအပ်သော Web ခလုတ်များကို ဖျောက်ခြင်း */
             .only-web,
             .download-btn {
                 display: none !important;
             }
 
-            /* PDF ခလုတ်ကို ညာဘက်တွင် ပေါ်စေခြင်း */
             .toolbar {
                 display: block !important;
                 visibility: visible !important;
@@ -265,10 +271,6 @@
                 border-bottom: 1px solid #eee !important;
             }
 
-            .contact-info {
-                text-align: right !important;
-            }
-
             .progress-fill {
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
@@ -281,9 +283,8 @@
 <body>
     <div class="container">
         <div class="toolbar">
-            <!-- <a href="A:\New folder\Professional-Documents\Kaung Pyae Tun _ Resume Form.pdf" download class="btn-classic only-web"> -->
-             <a href="https://kaungpyaetun.github.io/Professional-Documents/Kaung%20Pyae%20Tun%20_%20Resume%20Form.pdf" download class="btn-classic only-web">
-
+            <a href="https://kaungpyaetun.github.io/Professional-Documents/Kaung%20Pyae%20Tun%20_%20Resume%20Form.pdf"
+                download class="btn-classic only-web">
                 <i class="fas fa-file-download"></i> Download PDF
             </a>
 
@@ -304,8 +305,6 @@
                 <p><i class="fas fa-phone"></i> <a href="tel:+959444268883">+95 9444268883</a></p>
                 <p><i class="fab fa-github"></i> <a href="https://github.com/kaungpyaetun"
                         target="_blank">github.com/kaungpyaetun</a></p>
-
-
             </div>
         </header>
 
@@ -313,181 +312,224 @@
             <h2><i class="fas fa-user"></i> Profile</h2>
             <p>I am a hardworking professional with practical experience in web development, and my long-term goal is to
                 grow into a Senior Software Engineer. I am skilled in Java and have a solid history of creating helpful,
-                high-quality solutions.I am very eager to use my skills to benefit in many projects of the company and
-                the team, while
-                learning new technologies to contribute to the organization’s success and my professional development.
-                In the past, I also gained valuable experience working with Android development, IoT project, network
-                optimization and IT support.</p>
+                high-quality solutions. I am very eager to use my skills to benefit many projects of the company and the
+                team, while learning new technologies to contribute to the organization’s success and my professional
+                development. In the past, I also gained valuable experience working with Android development, IoT
+                project, network optimization and IT support.</p>
         </div>
+
         <div class="section">
             <h2><i class="fas fa-laptop-code"></i> Technical Skills</h2>
-            <div class="skills-grid">
+            <div class="skills-grid" style="display: grid; grid-template-columns: 1fr; gap: 10px;">
 
-                <div class="skill-item" style="flex-direction: column; align-items: flex-start;">
+                <div class="skill-item" style="padding: 10px;">
                     <strong
-                        style="font-size: 0.8em; color: var(--accent-color); text-transform: uppercase;">Programming,
-                        Frameworks & Database</strong>
-                    <div style="width: 100%; margin-top: 8px;">
-                        <div class="skill-info"><span>Java</span> <span>70%</span></div>
-                        <div class="progress-container">
-                            <div class="progress-fill" style="width: 70%;"></div>
-                        </div>
-
-                        <div class="skill-info"><span>Spring Boot</span> <span>60%</span></div>
-                        <div class="progress-container">
-                            <div class="progress-fill" style="width: 60%;"></div>
-                        </div>
-
-                        <div class="skill-info"><span>JavaScript</span> <span
-                                style="font-size: 0.8em; color: #7f8c8d;">Upskilling</span></div>
-                        <div class="progress-container">
-                            <div class="progress-fill" style="width: 20%; opacity: 0.5;"></div>
-                        </div>
-
-                        <div class="skill-info"><span>MySQL & JDBC</span> <span>60%</span></div>
-                        <div class="progress-container">
-                            <div class="progress-fill" style="width: 60%;"></div>
-                        </div>
+                        style="font-size: 0.8em; color: var(--accent-color); text-transform: uppercase; display: block; margin-bottom: 5px;">Programming
+                        & Database</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="badge">Java (70%)</span>
+                        <span class="badge">Spring Boot (60%)</span>
+                        <span class="badge">JavaScript (Upscaling)</span>
+                        <span class="badge">MySQL & JDBC (60%)</span>
                     </div>
                 </div>
 
-                <div class="skill-item" style="flex-direction: column; align-items: flex-start;">
+                <div class="skill-item" style="padding: 10px;">
                     <strong
-                        style="font-size: 0.8em; color: var(--accent-color); text-transform: uppercase;">Infrastructure
-                        & Tools</strong>
-                    <div style="width: 100%; margin-top: 8px;">
-                        <div class="skill-info"><span>Linux</span> <span>50%</span></div>
-                        <div class="progress-container">
-                            <div class="progress-fill" style="width: 50%;"></div>
-                        </div>
-
-                        <div class="skill-info"><span>Git & GitHub</span> <span>60%</span></div>
-                        <div class="progress-container">
-                            <div class="progress-fill" style="width: 60%;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-item" style="flex-direction: column; align-items: flex-start;">
-                    <strong style="font-size: 0.8em; color: var(--accent-color); text-transform: uppercase;">Web
+                        style="font-size: 0.8em; color: var(--accent-color); text-transform: uppercase; display: block; margin-bottom: 5px;">Web
                         Technologies</strong>
-                    <div style="width: 100%; margin-top: 8px;">
-                        <div class="skill-info"><span>HTML5 & CSS3</span> <span>80%</span></div>
-                        <div class="progress-container">
-                            <div class="progress-fill" style="width: 80%;"></div>
-                        </div>
-
-                        <div class="skill-info"><span>Bootstrap</span> <span>80%</span></div>
-                        <div class="progress-container">
-                            <div class="progress-fill" style="width: 80%;"></div>
-                        </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="badge">HTML5 & CSS3 (80%)</span>
+                        <span class="badge">Bootstrap (60%)</span>
                     </div>
                 </div>
 
-                <div class="skill-item" style="flex-direction: column; align-items: flex-start;">
-                    <strong style="font-size: 0.8em; color: var(--accent-color); text-transform: uppercase;">Development
-                        Workflow</strong>
-                    <div style="width: 100%; margin-top: 8px;">
-                        <div class="skill-info"><span>SDLC & Documentation</span> <span>60%</span></div>
-                        <div class="progress-container">
-                            <div class="progress-fill" style="width: 60%;"></div>
-                        </div>
-
-                        <div class="skill-info"><span>Agile Mentality</span> <span>70%</span></div>
-                        <div class="progress-container">
-                            <div class="progress-fill" style="width: 70%;"></div>
-                        </div>
+                <div class="skill-item" style="padding: 10px;">
+                    <strong
+                        style="font-size: 0.8em; color: var(--accent-color); text-transform: uppercase; display: block; margin-bottom: 5px;">Tools
+                        & Workflow</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="badge">Linux</span>
+                        <span class="badge">Git & GitHub</span>
+                        <span class="badge">SDLC</span>
+                        <span class="badge">Excel</span>
+                        <span class="badge">Documentation</span>
                     </div>
                 </div>
 
             </div>
         </div>
+
         <div class="section">
-            <h2><i class="fas fa-code"></i> Featured Projects</h2>
+            <h2><i class="fas fa-code"></i> Featured Project</h2>
             <div class="project-item">
                 <div class="item-header">
                     <span>Contract Management System</span>
-                    <a href="https://github.com/Michael-HTA/final-project" class="project-link" target="_blank">View
-                        Code <i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://github.com/Michael-HTA/final-project" class="project-link" target="_blank">Project
+                        Overview<i class="fas fa-external-link-alt"></i></a>
                 </div>
-                <p style="margin: 5px 0;">CMS click click done!!!!!!!!!!!!!!!!!!!!!!!!!!!!1.</p>
+                <p style="margin: 5px 0;">DAT CMS (Contract Management System): An enterprise-level web application
+                    designed to automate the contract lifecycle, from creation to multi-tier approval. Developed using
+                    Java 21, Spring Boot 3.5, and MySQL, the system features role-based access control, automated email
+                    notifications, and comprehensive audit tracking to ensure organizational security and efficiency.
+                </p>
             </div>
         </div>
 
         <div class="section">
-            <h2><i class="fas fa-project-diagram"></i>Projects Experience</h2>
-            <div class="project-item">
-                <div class="item-header">Campus-Wide Wireless LAN Deployment <span class="badge">Networking</span></div>
-                <div class="item-sub">University of Computer Studies, Taunggyi <span>2018</span></div>
-                <ul>
-                    <li>Planned and implemented WLC setup for university campus.</li>
-                    <li>Ensured seamless roaming and user authentication across buildings.</li>
-                </ul>
-            </div>
+            <h2><i class="fas fa-history"></i> Work & Project Experience</h2>
 
-            <div class="project-item">
-                <div class="item-header">Home Automatic Control System <span class="badge">IoT Project</span></div>
-                <div class="item-sub">Product Show Exhibition <span>2018</span></div>
-                <ul>
-                    <li>Developed a control system using IoT technology and embedded programming.</li>
-                    <li>Tested and validated system functionality for reliable operation.</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <div class="item-header">
-                    <span>Hotel Booking System</span>
-                    <span class="badge">Android Mobile Development</span>
-                </div>
-                <div class="item-sub">UCST Training Project <span>May 2017 – Jun 2017</span></div>
-                <ul>
-                    <li>Developed a full-featured hotel booking application utilizing the <strong>Java</strong>
-                        programming language.</li>
-                    <li>Implemented responsive and user-friendly UI elements using <strong>Android Studio, XML layout,
-                            and Android SDK</strong>.</li>
-                    <li>Managed robust data storage and retrieval systems using <strong>MySQL database</strong>.</li>
-                    <li>Collaborated with peers to analyze complex requirements and enhance overall application
-                        functionality.</li>
-                    <li>Conducted rigorous testing and debugging to ensure high-performance and stability.</li>
-                </ul>
+            <div class="accordion-container">
+
+                <details class="experience-item" open>
+                    <summary class="item-header">
+                        <div>Software Developer (OJT) <span class="badge">Professional</span></div>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </summary>
+                    <div class="item-sub">DAT Co., Ltd <span>Sept 2025 – Dec 2025</span></div>
+                    <ul>
+                        <li>Collaborated in a professional environment to build an industrial-standard Contract
+                            Management System (CMS) while implementing secure solutions and following industry
+                            workflows.</li>
+                        <li>Gained hands-on experience in the full Software Development Life Cycle (SDLC) and MVC
+                            architecture, while strengthening my technical skills in Linux and Excel.</li>
+                    </ul>
+                </details>
+
+                <details class="experience-item">
+                    <summary class="item-header">
+                        <div>Computer Service Provider <span class="badge">Technical Service</span></div>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </summary>
+                    <div class="item-sub">CTT Co., Ltd <span>March 2019 – Apr 2020</span></div>
+                    <ul>
+                        <li>Executed software integration and hardware configuration setups.</li>
+                        <li>Analyzed storage needs to help determine the best server configurations for optimal system
+                            performance.</li>
+                        <li>Provided technical support for various software applications and operating systems to
+                            resolve user issues effectively.</li>
+                    </ul>
+                </details>
+
+                <details class="experience-item">
+                    <summary class="item-header">
+                        <div>Network Engineer(OJT) <span class="badge">Networking</span></div>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </summary>
+                    <div class="item-sub">ATG Systems Co., Ltd <span>May 2018 – Dec 2018</span></div>
+                    <ul>
+                        <li><strong>Network Engineering :</strong> Configured and maintained data center network
+                            systems, focusing on routing, switching, and secure user authentication to ensure stable and
+                            optimized performance</li>
+                        <li><strong>Campus-Wide WLC Project:</strong> Planned and implemented Wireless LAN Controller
+                            (WLC) setup for UCSY Campus.</li>
+                    </ul>
+                </details>
+
+                <details class="experience-item">
+                    <summary class="item-header">
+                        <div>Academic Projects <span class="badge">UCST Training & Exhibitions</span></div>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </summary>
+                    <div class="item-sub">University of Computer Studies, Taunggyi <span>2017 – 2018</span></div>
+                    <div style="margin-top: 10px; padding-left: 20px; border-left: 2px solid #eee;">
+                        <strong>1. Home Automatic Control System (IoT)</strong>
+                        <ul>
+                            <li>Developed a control system using IoT technology and embedded programming for Product
+                                Show Exhibition.</li>
+                            <li>Tested and validated system functionality for reliable operation.</li>
+                        </ul>
+                        <strong>2. Hotel Booking System (Android Development)</strong>
+                        <ul>
+                            <li>Built a hotel booking mobile app using Java and Android Studio, designing the screens
+                                with XML layouts.</li>
+                            <li>Connected the app to a MySQL database to save and show booking information.</li>
+                            <li>Tested the application manually to find and fix bugs, making sure it ran smoothly on the
+                                device.</li>
+                        </ul>
+                    </div>
+                </details>
+
             </div>
         </div>
 
+        <style>
+            /* Web View Accordion Styles */
+            details.experience-item {
+                background: #fff;
+                border: 1px solid #eee;
+                border-radius: 6px;
+                margin-bottom: 10px !important;
+                padding: 0;
+                overflow: hidden;
+                transition: all 0.3s ease;
+            }
 
+            summary.item-header {
+                padding: 15px;
+                list-style: none;
+                cursor: pointer;
+                background: #fcfcfc;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
 
-        <div class="section">
-            <h2><i class="fas fa-briefcase"></i> Employment History</h2>
+            summary::-webkit-details-marker {
+                display: none;
+            }
 
-            <div class="experience-item">
-                <div class="item-header">Software Developer(OJT)</div>
-                <div class="item-sub">DAT Co., Ltd <span>Sept 2025 – Dec 2025</span></div>
-                <ul>
-                    <li>jjjjjjjjjjjjjjjjjjjjjjjjjj.</li>
-                    <li>sadffffffffffffffffffffffffffffff</li>
-                    <li>ghjkl;jhkl;asdffffffffffffffffffffff</li>
-                </ul>
-            </div>
+            details[open] summary {
+                border-bottom: 1px solid #eee;
+                background: #fff;
+            }
 
-            <div class="experience-item">
-                <div class="item-header">Computer Service Provider</div>
-                <div class="item-sub">CTT Co., Ltd <span>Jun 2019 – Apr 2020</span></div>
-                <ul>
-                    <li>Executed software integration and hardware configuration setups.</li>
-                    <li>Calculated storage server requirements for optimal performance.</li>
-                    <li>Provided technical support and training to end-users for software applications.</li>
-                </ul>
-            </div>
+            details .item-sub,
+            details ul,
+            details div {
+                padding: 10px 20px;
+            }
 
-            <div class="experience-item">
-                <div class="item-header">Network Engineer (OJT)</div>
-                <div class="item-sub">ATG Systems Co., Ltd <span>May 2018 – Aug 2018</span></div>
-                <ul>
-                    <li>Configured routing protocols for efficient data center operations.</li>
-                    <li>Designed switching equipment systems to optimize network performance.</li>
-                    <li>Collaborated with team members to enhance system functionality and reliability.</li>
-                </ul>
-            </div>
-        </div>
+            .toggle-icon {
+                font-size: 0.8em;
+                color: var(--accent-color);
+                transition: transform 0.3s ease;
+            }
 
+            details[open] .toggle-icon {
+                transform: rotate(180deg);
+            }
+
+            /* PRINT / PDF VIEW: Remove Accordion Design */
+            @media print {
+                details.experience-item {
+                    border: none !important;
+                    margin-bottom: 25px !important;
+                }
+
+                /* Force all details to be open in PDF/Print */
+                details {
+                    display: block !important;
+                }
+
+                summary.item-header {
+                    padding: 0 !important;
+                    background: none !important;
+                    cursor: default !important;
+                    display: flex !important;
+                }
+
+                .toggle-icon {
+                    display: none !important;
+                }
+
+                details .item-sub,
+                details ul,
+                details div {
+                    padding: 5px 0 !important;
+                }
+            }
+        </style>
 
         <div class="section">
             <h2><i class="fas fa-graduation-cap"></i> Education</h2>
@@ -496,27 +538,26 @@
                 <div class="item-sub">University of Computer Studies, Taunggyi <span>Graduated Feb 2019</span></div>
             </div>
         </div>
+
         <div class="section">
             <h2><i class="fas fa-lightbulb"></i> Language & Personal Skills</h2>
-            <div style="margin-top:15px;">
-                <ul class="personal-skills-list">
-                    <li> English (Intermediate)</li>
-                    <li> Strong problem-solving and troubleshooting mindset</li>
-                    <li>Effective team collaboration</li>
-                    <li> Conscientious and responsible project contributor</li>
-                    <li>Clear reasoning ability and good communication skills</li>
-                </ul>
-            </div>
+            <ul>
+                <li>English (Intermediate)</li>
+                <li>Strong problem-solving and troubleshooting mindset</li>
+                <li>Effective team collaboration</li>
+                <li>Conscientious and responsible project contributor</li>
+                <li>Clear reasoning ability and good communication skills</li>
+            </ul>
         </div>
+
         <div class="section">
-            <h2><i class="fas fa-bullseye"></i>Objective</h2>
+            <h2><i class="fas fa-bullseye"></i> Objective</h2>
             <div class="objective-box">
                 To secure a position that allows me to leverage my education and experience in software development
                 while contributing to the mutual growth of both myself and the organization.
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
